@@ -1,15 +1,20 @@
 #include "Circle.h"
 #include <gtest/gtest.h>
-
 // Uncomment when you're ready
-/*
+
 TEST(CircleCircle, Contained)
 {
   Circle inner = Circle(Point(0.0,0.0), 2.0);
   Circle outer = Circle(Point(0.0,0.0), 4.0);
   ASSERT_TRUE(inner.ContainedBy(outer));
 }
-*/
+
+TEST(CircleCircle2, Contained)
+{
+  Circle inner2 = Circle(Point(2.0,0.0), 2.0);
+  Circle outer2 = Circle(Point(0.0,0.0), 4.0);
+  ASSERT_FALSE(inner2.ContainedBy(outer2));
+}
 
 /* 
    You'll need to extend this by adding additional tests for:

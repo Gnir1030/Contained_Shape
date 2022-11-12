@@ -1,7 +1,11 @@
 #include "Circle.h"
+#include "Polygon.h"
+#include "Reuleaux.h"
+#include <iostream>
 #include <cmath>
+using namespace std;
 
-double distance(Point& p1, Point& p2){
+double distance(const Point& p1, const Point& p2){
     return sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2));
 }
 
@@ -13,16 +17,28 @@ Circle::Circle(const Point &center, double radius){
 
     // do not modify or remove these functions
 bool Circle::ContainedBy(Circle &circle){
-    double dist = distance(this->center, circle.center);
-    if(dist + this->radius >= circle.radius){
+    double dist = distance(this->center, circle.getCen());
+    cerr << dist << endl;
+    if(dist + this->radius >= circle.getRad()){
         return false;
     }
     return true;
 }
-bool ContainedBy(Polygon &polygon){
+
+
+bool Circle::ContainedBy(Polygon &polygon){
     return true;
 }
 
-bool ContainedBy(ReuleauxTriangle &rt){
+bool Circle::ContainedBy(ReuleauxTriangle &rt){
     return true;
+}
+
+
+Point Circle::getCen(){
+    return this->center;
+}
+
+double Circle::getRad(){
+    return this->radius;
 }

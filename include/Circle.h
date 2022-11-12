@@ -20,6 +20,11 @@ class Circle : public Containable {
     bool ContainedBy(Circle &circle);
     bool ContainedBy(Polygon &polygon);
     bool ContainedBy(ReuleauxTriangle &rt);
+    Point getCen();
+    double getRad();
+  private:
+   Point center;
+   double radius;
 };
 
 #endif
