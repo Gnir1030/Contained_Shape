@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 #include "Reuleaux.h"
 
 ReuleauxTriangle::ReuleauxTriangle(const Point vertices[3] /* clockwise */){
