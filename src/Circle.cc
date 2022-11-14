@@ -41,7 +41,7 @@ bool Circle::ContainedBy(Polygon &polygon){
             //bigRad = Dist <= radius;
             double a = i->y - j->y, b = j->x - i->x, c = i->x * j->y - i->y * j->x;
             double p = b *b/(a*a + b*b)*center.x - a*b/(a*a + b*b)*center.y - a*c/(a*a + b*b);
-            std::cerr << p << std::endl;
+            std::cerr << a << b << c <<  p << std::endl;
             if((p <= i->x && p >= j->x) || (p >= i->x && p <= j->x))
                 return false;
         }
