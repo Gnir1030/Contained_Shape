@@ -9,7 +9,7 @@ TEST(CircleConvexPolygon, Contained)
 {
   Circle inner = Circle(Point(0.0,0.0), 2.0);
   Polygon outer = Polygon(convex);
-  ASSERT_TRUE(inner.ContainedBy(outer));
+  ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
 TEST(CirclePolygon2, Case1NotContained)
