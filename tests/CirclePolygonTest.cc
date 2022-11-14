@@ -4,63 +4,81 @@
 // Uncomment when you're ready
 
 std::vector<Point> convex = {Point(0.0,0.0), Point(2.0, 0.0), Point(3.0, 2.0), Point(1.0, 4.0), Point(-1.0, 2.0)};
+std::vector<Point> concave = {Point(-3.0,0.0), Point(2.0, 0.0), Point(4.0, 5.0), Point(2.0, 5.0), Point(-4.0, 8.0)};
 
 TEST(CircleConvexPolygon, Contained)
 {
-  Circle inner = Circle(Point(0.0,0.0), 2.0);
+  Circle inner = Circle(Point(1.0,2.0), 1.0);
   Polygon outer = Polygon(convex);
-  ASSERT_FALSE(inner.ContainedBy(outer));
+  ASSERT_TRUE(inner.ContainedBy(outer));
 }
 
-TEST(CirclePolygon2, Case1NotContained)
+TEST(CircleConvexPolygon2, Case1NotContained)
 {
-  Circle inner2 = Circle(Point(2.0,0.0), 4.0);
-  Circle outer2 = Circle(Point(0.0,0.0), 4.0);
+  Circle inner2 = Circle(Point(4.0,2.0), 2.0);
+  Polygon outer2 = Polygon(convex);
   ASSERT_FALSE(inner2.ContainedBy(outer2));
 }
 
-TEST(CirclePolygon3, Case2NotContained)
+TEST(CircleConvexPolygon3, Case2NotContained)
 {
-  Circle inner2 = Circle(Point(0.0,0.0), 1.0);
-  Circle outer2 = Circle(Point(6.0,0.0), 4.0);
+  Circle inner2 = Circle(Point(2.0,2.0), 2.0);
+  Polygon outer2 = Polygon(convex);
   ASSERT_FALSE(inner2.ContainedBy(outer2));
 }
 
-TEST(CirclePolygon4, Case3NotContained)
+TEST(CircleConvexPolygon4, Case3NotContained)
 {
-  Circle inner2 = Circle(Point(0.0,0.0), 6.0);
-  Circle outer2 = Circle(Point(0.0,0.0), 4.0);
+  Circle inner2 = Circle(Point(2.0,2.0), 4.0);
+  Polygon outer2 = Polygon(convex);
   ASSERT_FALSE(inner2.ContainedBy(outer2));
 }
 
-TEST(CirclePolygon5, Case4NotContained)
+TEST(CircleConvexPolygon5, Case4NotContained)
 {
-  Circle inner2 = Circle(Point(0.0,0.0), 4.0);
-  Circle outer2 = Circle(Point(0.0,0.0), 4.0);
+  Circle inner2 = Circle(Point(1.0,1.0), 1.0);
+  Polygon outer2 = Polygon(convex);
   ASSERT_FALSE(inner2.ContainedBy(outer2));
 }
 
-TEST(CirclePolygon6, Case5NotContained)
+TEST(CircleConcavePolygon, Contained)
 {
-  Circle inner2 = Circle(Point(2.0,0.0), 2.0);
-  Circle outer2 = Circle(Point(0.0,0.0), 4.0);
+  Circle inner = Circle(Point(-1.0,4.0), 2.0);
+  Polygon outer = Polygon(concave);
+  ASSERT_TRUE(inner.ContainedBy(outer));
+}
+
+TEST(CircleConcavePolygon2, Case1NotContained)
+{
+  Circle inner2 = Circle(Point(0.0,7.0), 2.0);
+  Polygon outer2 = Polygon(concave);
   ASSERT_FALSE(inner2.ContainedBy(outer2));
 }
 
-TEST(CirclePolygon7, Case6NotContained)
+TEST(CircleConcavePolygon3, Case2NotContained)
 {
-  Circle inner2 = Circle(Point(6.0,0.0), 2.0);
-  Circle outer2 = Circle(Point(0.0,0.0), 4.0);
+  Circle inner2 = Circle(Point(0.0,3.0), 4.0);
+  Polygon outer2 = Polygon(concave);
+  ASSERT_FALSE(inner2.ContainedBy(outer2));
+}
+
+TEST(CircleConcavePolygon4, Case3NotContained)
+{
+  Circle inner2 = Circle(Point(0.0,3.0), 7.0);
+  Polygon outer2 = Polygon(concave);
+  ASSERT_FALSE(inner2.ContainedBy(outer2));
+}
+
+TEST(CircleConcavePolygon5, Case4NotContained)
+{
+  Circle inner2 = Circle(Point(0.0,2.0), 2.0);
+  Polygon outer2 = Polygon(concave);
   ASSERT_FALSE(inner2.ContainedBy(outer2));
 }
 /* 
-   You'll need to extend this by adding additional tests for:
-    1. Inner and Outer intersect (not contained)
-    2. Inner is entirely outside Outer (not contained)
+    1. Circle center outside Polygon
+    -Circle center inside Polygon
+    2. Inner and Outer intersect (not contained)
     3. Inner surrounds Outer (not contained)
-    4. Inner coincident with Outer (not contained)
-    5. Inner perimeter touches Outer perimeter, Inner is inside Outer (not contained)
-    6. Inner perimeter touches Outer perimeter, Inner is outside Outer (not contained)
-
-    Note that 4. and 5. should be taken care of by 1. but you need the tests to make sure
+    4. Inner perimeter touches Outer perimeter, Inner is inside Outer (not contained)
 */
