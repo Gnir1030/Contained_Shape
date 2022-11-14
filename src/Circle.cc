@@ -27,7 +27,7 @@ bool Circle::ContainedBy(Circle &circle){
 bool Circle::ContainedBy(Polygon &polygon){
     auto j = polygon.getVer().end() - 1;
     bool oddEdges= false;
-    //bool bigRad = false; 
+    int counter = 0;
     double Dist;
     for (auto i = polygon.getVer().begin(); i != polygon.getVer().end(); i++) {
         if ((i->y < center.y && j->y >= center.y) ||  (j->y < center.y && i->y >= center.y )) {
@@ -41,11 +41,12 @@ bool Circle::ContainedBy(Polygon &polygon){
             //bigRad = Dist <= radius;
             double a = i->y - j->y, b = j->x - i->x, c = i->x * j->y - i->y * j->x;
             double p = b *b/(a*a + b*b)*center.x - a*b/(a*a + b*b)*center.y - a*c/(a*a + b*b);
-            std::cerr << a << b << c <<  p << std::endl;
+            std::cerr << counter << " " << a << " "<< b << c <<  p << std::endl;
             if((p <= i->x && p >= j->x) || (p >= i->x && p <= j->x))
                 return false;
         }
         j=i;
+        counter++;
     }
     
     if(!oddEdges){
