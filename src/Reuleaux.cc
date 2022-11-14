@@ -1,9 +1,9 @@
+#include "Circle.h"
+#include "Polygon.h"
 #include "Reuleaux.h"
 #include<algorithm> 
 
-double distance(const Point& p1, const Point& p2){
-    return sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2));
-}
+
 
 ReuleauxTriangle::ReuleauxTriangle(const Point vertices[3] /* clockwise */){
     std::copy(vertices, vertices+3,this->vertices);
@@ -11,18 +11,39 @@ ReuleauxTriangle::ReuleauxTriangle(const Point vertices[3] /* clockwise */){
 }
 
 bool ReuleauxTriangle::ContainedBy(Circle &circle){
-    double maxDist = 0;
     for(int i = 0; i < 3; i++){
-        if(distance(vertices[i], circle.getCen()) > maxDist){
-            maxDist = distance(rt.getVer()[i], center);
+        if(distance(vertices[i], circle.getCen()) >= circle.getRad()){
+            return false;
         }
-    } 
-    if(maxDist + radius >= rt.getRad()){
-        return false;
     }
     return true;
 }
 bool ReuleauxTriangle::ContainedBy(Polygon &polygon){
+    for(auto k : vertices){
+        auto j = polygon.getVer().end() - 1;
+        bool oddEdges= false;
+        bool bigRad = false;
+        double Dist;
+        for (auto i = polygon.getVer().begin(); i != polygon.getVer().end(); i++) {
+            if ((i->y < k.y && j->y >= k.y) ||  (j->y < k.y && i->y >= k.y )) {
+                if (i->x + (k.y-i->y)/(j->y - i->y)*(j->x - i->x) < k.x) {
+                    oddEdges=!oddEdges; 
+                }
+            }
+            Dist = absolute(((j->x - i->x) * k.y + (i->y - j->y) * k.x + (i->x * j->y - j->x * i->y))/sqrt(pow(i->y - j->y, 2) + pow(j->x - i->x, 2)));
+            if(Dist <= radius && !bigRad){
+                bigRad = Dist <= radius;
+            }
+            j=i;
+        }
+    
+        if(!oddEdges){
+            return false;
+        }
+        if(bigRad){
+            return false;
+        }
+    }
     return true;
 }
 bool ReuleauxTriangle::ContainedBy(ReuleauxTriangle &rt){

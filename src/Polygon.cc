@@ -2,8 +2,6 @@
 #include "Polygon.h"
 #include "Reuleaux.h"
 
-//http://alienryderflex.com/polygon/
-
 double distance(const Point& p1, const Point& p2){
     return sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2));
 }
@@ -39,7 +37,7 @@ bool Polygon::ContainedBy(Polygon &polygon){
                 }
             }
             j=i;
-        }
+        }//http://alienryderflex.com/polygon/
     
         if(!oddEdges){
             return false;

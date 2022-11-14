@@ -35,7 +35,7 @@ bool Circle::ContainedBy(Polygon &polygon){
             if (i->x + (center.y-i->y)/(j->y - i->y)*(j->x - i->x) < center.x) {
                 oddEdges=!oddEdges; 
             }
-        }
+        }//http://alienryderflex.com/polygon/
 
         Dist = std::abs((j->x - i->x) * center.y + (i->y - j->y) * center.x + (i->x * j->y - j->x * i->y))/sqrt(pow(i->y - j->y, 2) + pow(j->x - i->x, 2));
         if(Dist <= radius){

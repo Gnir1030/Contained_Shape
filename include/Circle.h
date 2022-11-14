@@ -10,7 +10,7 @@
 
 #include "Containable.h"
 #include "Point.h"
-#include <cmath>
+#include <math.h>
 
 class Circle : public Containable {
   public:
