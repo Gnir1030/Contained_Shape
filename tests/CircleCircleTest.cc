@@ -9,42 +9,42 @@ TEST(CircleCircle, Contained)
   ASSERT_TRUE(inner.ContainedBy(outer));
 }
 
-TEST(CircleCircle2, Case1-NotContained)
+TEST(CircleCircle2, Case1NotContained)
 {
   Circle inner2 = Circle(Point(2.0,0.0), 4.0);
   Circle outer2 = Circle(Point(0.0,0.0), 4.0);
   ASSERT_FALSE(inner2.ContainedBy(outer2));
 }
 
-TEST(CircleCircle3, Case2-NotContained)
+TEST(CircleCircle3, Case2NotContained)
 {
   Circle inner2 = Circle(Point(0.0,0.0), 1.0);
   Circle outer2 = Circle(Point(6.0,0.0), 4.0);
   ASSERT_FALSE(inner2.ContainedBy(outer2));
 }
 
-TEST(CircleCircle4, Case3-NotContained)
+TEST(CircleCircle4, Case3NotContained)
 {
   Circle inner2 = Circle(Point(0.0,0.0), 6.0);
   Circle outer2 = Circle(Point(0.0,0.0), 4.0);
   ASSERT_FALSE(inner2.ContainedBy(outer2));
 }
 
-TEST(CircleCircle5, Case4-NotContained)
+TEST(CircleCircle5, Case4NotContained)
 {
   Circle inner2 = Circle(Point(0.0,0.0), 4.0);
   Circle outer2 = Circle(Point(0.0,0.0), 4.0);
   ASSERT_FALSE(inner2.ContainedBy(outer2));
 }
 
-TEST(CircleCircle6, Case5-NotContained)
+TEST(CircleCircle6, Case5NotContained)
 {
   Circle inner2 = Circle(Point(2.0,0.0), 2.0);
   Circle outer2 = Circle(Point(0.0,0.0), 4.0);
   ASSERT_FALSE(inner2.ContainedBy(outer2));
 }
 
-TEST(CircleCircle7, Case6-NotContained)
+TEST(CircleCircle7, Case6NotContained)
 {
   Circle inner2 = Circle(Point(6.0,0.0), 2.0);
   Circle outer2 = Circle(Point(0.0,0.0), 4.0);
