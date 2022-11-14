@@ -3,18 +3,18 @@
 #include "Reuleaux.h"
 #include<algorithm> 
 
-double distance(const Point& p1, const Point& p2){
+double distance3(const Point& p1, const Point& p2){
     return sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2));
 }
 
 ReuleauxTriangle::ReuleauxTriangle(const Point vertices[3] /* clockwise */){
     std::copy(vertices, vertices+3,this->vertices);
-    this->radius = distance(vertices[0], vertices[1]);
+    this->radius = distance3(vertices[0], vertices[1]);
 }
 
 bool ReuleauxTriangle::ContainedBy(Circle &circle){
     for(int i = 0; i < 3; i++){
-        if(distance(vertices[i], circle.getCen()) >= circle.getRad()){
+        if(distance3(vertices[i], circle.getCen()) >= circle.getRad()){
             return false;
         }
     }

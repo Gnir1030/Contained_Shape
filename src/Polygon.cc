@@ -2,7 +2,7 @@
 #include "Polygon.h"
 #include "Reuleaux.h"
 
-double distance(const Point& p1, const Point& p2){
+double distance2(const Point& p1, const Point& p2){
     return sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2));
 }
 
@@ -20,7 +20,7 @@ Polygon::Polygon(std::vector<Point> vertices /* clockwise */){
 
 bool Polygon::ContainedBy(Circle &circle){
     for(auto i: this->vertices){
-        if(distance(i, circle.getCen()) >= circle.getRad()){
+        if(distance2(i, circle.getCen()) >= circle.getRad()){
             return false;
         }
     }
@@ -49,8 +49,8 @@ bool Polygon::ContainedBy(ReuleauxTriangle &rt){
     for(auto k : vertices){
         double maxDist = 0;
         for(int i = 0; i < 3; i++){
-            if(distance(rt.getVer()[i], k) > maxDist){
-                maxDist = distance(rt.getVer()[i], k);
+            if(distance2(rt.getVer()[i], k) > maxDist){
+                maxDist = distance2(rt.getVer()[i], k);
             }
         } 
         if(maxDist >= rt.getRad()){
