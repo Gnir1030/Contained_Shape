@@ -1,6 +1,7 @@
 #include "Circle.h"
 #include "Polygon.h"
 #include "Reuleaux.h"
+#include <iostream>
 //#include <cmath>
 
 double distance(const Point& p1, const Point& p2){
@@ -40,6 +41,7 @@ bool Circle::ContainedBy(Polygon &polygon){
             //bigRad = Dist <= radius;
             double a = i->y - j->y, b = j->x - i->x, c = i->x * j->y - i->y * j->x;
             double p = b *b/(a*a + b*b)*center.x - a*b/(a*a + b*b)*center.y - a*c/(a*a + b*b);
+            std::cerr << p << std::endl;
             if((p <= i->x && p >= j->x) || (p >= i->x && p <= j->x))
                 return false;
         }
