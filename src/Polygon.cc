@@ -33,7 +33,7 @@ bool Polygon::ContainedBy(Polygon &polygon){
         auto j = polygon.getVer().end() - 1;
         bool oddEdges= false;
         for (auto i = polygon.getVer().begin(); i != polygon.getVer().end(); i++) {
-            if ((i->y < k.x && j->y >= k.y ||  j->y < k.y && i->y >= k.y ) &&  (i->x <= k.x || j->x <= k.x )) {
+            if ( (i->y < k.y && j->y >= k.y) ||  (j->y < k.y && i->y >= k.y) ) {
                 if (i->x + (k.y-i->y)/(j->y - i->y)*(j->x - i->x) < k.x) {
                     oddEdges=!oddEdges; 
                 }
@@ -55,7 +55,7 @@ bool Polygon::ContainedBy(ReuleauxTriangle &rt){
                 maxDist = distance(rt.getVer()[i], k);
             }
         } 
-        if(maxDist > rt.getRad()){
+        if(maxDist >= rt.getRad()){
             return false;
         }
     }
