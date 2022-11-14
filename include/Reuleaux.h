@@ -20,6 +20,11 @@ class ReuleauxTriangle : public Containable {
     bool ContainedBy(Circle &circle);
     bool ContainedBy(Polygon &polygon);
     bool ContainedBy(ReuleauxTriangle &rt);
+    Point* getVer();
+    double getRad();
+  private:
+    Point vertices[3];
+    double radius;
 };
 
 #endif

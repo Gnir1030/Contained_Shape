@@ -22,6 +22,11 @@ class Polygon : public Containable {
     bool ContainedBy(Circle &circle);
     bool ContainedBy(Polygon &polygon);
     bool ContainedBy(ReuleauxTriangle &rt);
+    std::vector<Point> getVer();
+    Point getCen();
+  private:
+    std::vector<Point> vertices;
+    Point center;
 };
 
 #endif
