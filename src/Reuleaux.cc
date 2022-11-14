@@ -30,7 +30,7 @@ bool ReuleauxTriangle::ContainedBy(Polygon &polygon){
                     oddEdges=!oddEdges; 
                 }
             }
-            Dist = absolute(((j->x - i->x) * k.y + (i->y - j->y) * k.x + (i->x * j->y - j->x * i->y))/sqrt(pow(i->y - j->y, 2) + pow(j->x - i->x, 2)));
+            Dist = std::abs((j->x - i->x) * k.y + (i->y - j->y) * k.x + (i->x * j->y - j->x * i->y))/sqrt(pow(i->y - j->y, 2) + pow(j->x - i->x, 2));
             if(Dist <= radius && !bigRad){
                 bigRad = Dist <= radius;
             }
