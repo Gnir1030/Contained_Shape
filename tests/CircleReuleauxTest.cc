@@ -21,7 +21,7 @@ TEST(CircleReuleaux2, Case1NotContained)
 
 TEST(CircleReuleaux3, Case2NotContained)
 {
-  Circle inner2 = Circle(Point(0.0,1.0), 2.0);
+  Circle inner2 = Circle(Point(1.0,1.0), 1.0);
   ReuleauxTriangle outer2 = ReuleauxTriangle(tri);
   ASSERT_FALSE(inner2.ContainedBy(outer2));
 }
