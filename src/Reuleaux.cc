@@ -21,7 +21,7 @@ bool ReuleauxTriangle::ContainedBy(Circle &circle){
     }
 
     int j = 2;
-    double minDist = distance3(circle.getCen(), vertices[0]); 
+    double minDist = 0;
     Point minP = vertices[0];
     for(int i  = 0; i < 3; i++){
         int neg = 1;
@@ -30,7 +30,7 @@ bool ReuleauxTriangle::ContainedBy(Circle &circle){
             return true;
         }
         double dist = distance3(circle.getCen(), vertices[i]);
-        if(minDist > dist){minDist = dist; minP = vertices[i];}
+        if(minDist > dist || minDist == 0 ){minDist = dist; minP = vertices[i];}
         j = i;
     }
 
