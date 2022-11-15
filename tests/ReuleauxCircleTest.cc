@@ -3,39 +3,39 @@
 #include <gtest/gtest.h>
 // Uncomment when you're ready
 
-Point tri[3] = {Point(2.0,0.0), Point(-2.0, 0.0), Point(0.0, 2.0 * sqrt(3.0))};
+Point tri3[3] = {Point(2.0,0.0), Point(-2.0, 0.0), Point(0.0, 2.0 * sqrt(3.0))};
 
 TEST(ReuleauxCircle, Contained)
 {
-  ReuleauxTriangle inner = ReuleauxTriangle(tri);
+  ReuleauxTriangle inner = ReuleauxTriangle(tri3);
   Circle outer = Circle(Point(0.0,0.0), 4.0);
   ASSERT_TRUE(inner.ContainedBy(outer));
 }
 
 TEST(ReuleauxCircle2, Case1NotContained)
 {
-  ReuleauxTriangle inner = ReuleauxTriangle(tri);
+  ReuleauxTriangle inner = ReuleauxTriangle(tri3);
   Circle outer = Circle(Point(0.0,1.0), 1.0);
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
 TEST(CircleReuleaux3, Case2NotContained)
 {
-  ReuleauxTriangle inner = ReuleauxTriangle(tri);
+  ReuleauxTriangle inner = ReuleauxTriangle(tri3);
   Circle outer = Circle(Point(0.0,2.0), 2.0);
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
 TEST(CircleReuleaux4, Case3NotContained)
 {
-  ReuleauxTriangle inner = ReuleauxTriangle(tri);
+  ReuleauxTriangle inner = ReuleauxTriangle(tri3);
   Circle outer = Circle(Point(0.0,5.0), 4.0 - 2.0 * sqrt(3.0));
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
 TEST(CircleReuleaux5, Case4NotContained)
 {
-  ReuleauxTriangle inner = ReuleauxTriangle(tri);
+  ReuleauxTriangle inner = ReuleauxTriangle(tri3);
   Circle outer = Circle(Point(0.0,5.0), 2.0 * sqrt(3.0) + 0.5);
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
