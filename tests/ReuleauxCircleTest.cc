@@ -41,6 +41,13 @@ TEST(ReuleauxCircle5, Case4NotContained)
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
+TEST(ReuleauxCircle6, Case5NotContained)
+{
+  ReuleauxTriangle inner = ReuleauxTriangle(tri3);
+  Circle outer = Circle(Point(2.0,2.0), 5.0);
+  ASSERT_FALSE(inner.ContainedBy(outer));
+}
+
 /* 
     1. All inner Reuleaux vertices outside outer Circle (Inner surrounds Outer)
     2. One or more Reuleaux vertices outside outer Circle (Inner and Outer intersect) 
