@@ -58,7 +58,7 @@ bool ReuleauxTriangle::ContainedBy(Polygon &polygon){
             return false;
         }
     }
-/*
+
     auto j = *(polygon.getVer().end() - 1);
     for (auto i : polygon.getVer()) {
         double maxDist = 0;
@@ -73,7 +73,6 @@ bool ReuleauxTriangle::ContainedBy(Polygon &polygon){
         }
         j = i;
     }
-    */
 
     return true;
 }
