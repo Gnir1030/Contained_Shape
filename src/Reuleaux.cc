@@ -64,6 +64,18 @@ bool ReuleauxTriangle::ContainedBy(ReuleauxTriangle &rt){
         if(maxDist >= rt.getRad()){
             return false;
         }
+        double minDist = distance3(vertices[0], k);
+        Point minPoint = vertices[0];
+        if(minDist > distance3(vertices[1], k)){
+            minDist = distance3(vertices[1], k);
+            minPoint = vertices[1];
+        }
+        if(minDist > distance3(vertices[2], k)){
+            minDist = distance3(vertices[2], k);
+            minPoint = vertices[2];
+        }
+        if(minDist + radius >= rt.getRad())
+            return false;
     }
     return true;
 }

@@ -39,9 +39,9 @@ bool Circle::ContainedBy(Polygon &polygon){
         Dist = std::abs((j.x - i.x) * center.y + (i.y - j.y) * center.x + (i.x * j.y - j.x * i.y))/sqrt(pow(i.y - j.y, 2) + pow(j.x - i.x, 2));
         if(Dist <= radius){
             //bigRad = Dist <= radius;
-            double a = i.y - j.y, b = j.x - i.x, c = i.x * j.y - i.y * j.x;
-            double p = b *b/(a*a + b*b)*center.x - a*b/(a*a + b*b)*center.y - a*c/(a*a + b*b);
-            if((p <= i.x && p >= j.x) || (p >= i.x && p <= j.x))
+            double a = i.y - j.y, b = j.x - i.x, c = i.x * j.y - i.y * j.x; //linear equation : ax + by + c = 0
+            double p = b *b/(a*a + b*b)*center.x - a*b/(a*a + b*b)*center.y - a*c/(a*a + b*b); //normal vector point on the equation (x value)
+            if((p <= i.x && p >= j.x) || (p >= i.x && p <= j.x)) // is between two vertices?
                 return false;
         }
         j=i;
