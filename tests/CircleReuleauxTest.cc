@@ -35,7 +35,7 @@ TEST(CircleReuleaux4, Case3NotContained)
 
 TEST(CircleReuleaux5, Case4NotContained)
 {
-  Circle inner2 = Circle(Point(0.0,0.0), 1.0);
+  Circle inner2 = Circle(Point(0.0,0.0), 4.0 - 2.0 * sqrt(3.0));
  ReuleauxTriangle outer2 = ReuleauxTriangle(tri);
   ASSERT_FALSE(inner2.ContainedBy(outer2));
 }
