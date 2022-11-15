@@ -19,18 +19,24 @@ bool ReuleauxTriangle::ContainedBy(Circle &circle){
             return false;
         }
     }
-    /*
-    double minDist = distance3(vertices[0], circle.getCen());
-    Point minPoint = vertices[0];
-    if(minDist > distance3(vertices[1], circle.getCen())){
-        minDist = distance3(vertices[1], circle.getCen());
-        minPoint = vertices[1];
+
+    int j = 2;
+    double minDist = distance3(circle.getCen(), vertices[0]); 
+    Point minP = vertices[0];
+    for(int i  = 0; i < 3; i++){
+        int neg = 1;
+        if(vertices[i].x < vertices[j].x){ neg = -1; }
+        if(neg * (vertices[i].x - vertices[j].x) * circle.getCen().y > neg*((vertices[i].y - vertices[j].y) * circle.getCen().x + (vertices[i].x * vertices[j].y - vertices[i].y * vertices[j].x))){
+            return true;
+        }
+        double dist = distance3(circle.getCen(), vertices[i]);
+        if(minDist > dist){minDist = dist; minP = vertices[i];}
+        j = i;
     }
-    if(minDist > distance3(vertices[2], circle.getCen())){
-        minDist = distance3(vertices[2], circle.getCen());
-        minPoint = vertices[2];
+
+    if(distance3(circle.getCen(),minP) + radius > circle.getRad()){
+        return false;
     }
-    */
 
     return true;
     //return Circle(minPoint, radius).ContainedBy(circle);

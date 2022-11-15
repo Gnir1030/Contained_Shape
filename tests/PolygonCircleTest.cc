@@ -15,25 +15,41 @@ TEST(PolygonCircle, Contained)
 TEST(PolygonCircle2, Case1NotContained)
 {
   Polygon inner = Polygon(convex3);
-  Circle outer = Circle(Point(1.0,2.0), 1.0);
+  Circle outer = Circle(Point(2.0,2.0), 1.0);
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
 TEST(PolygonCircle3, Case2NotContained)
 {
   Polygon inner = Polygon(convex3);
-  Circle outer = Circle(Point(2.0,2.0), 1.5);
+  Circle outer = Circle(Point(4.0,4.0), 1.0);
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
 TEST(PolygonCircle4, Case3NotContained)
 {
   Polygon inner = Polygon(convex3);
-  Circle outer = Circle(Point(1.0,2.0), sqrt(3.0));
+  Circle outer = Circle(Point(1.0,-1.0), 1.0);
+  ASSERT_FALSE(inner.ContainedBy(outer));
+}
+
+TEST(PolygonCircle5, Case4NotContained)
+{
+  Polygon inner = Polygon(convex3);
+  Circle outer = Circle(Point(1.0,2.0), 4.0);
+  ASSERT_FALSE(inner.ContainedBy(outer));
+}
+
+TEST(PolygonCircle6, Case5NotContained)
+{
+  Polygon inner = Polygon(convex3);
+  Circle outer = Circle(Point(1.0,1.0), 1.0);
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 /* 
-    1. All Polygon vertices outside Circle (Inner surrounds Outer)
-    2. One or more Polygon vertices outside Circle (Inner and Outer intersect) 
-    3. One or more Polygon vertices touch Outer perimeter
+    1. Inner and Outer intersect (not contained)
+    2. Inner outside Outer
+    3. Inner perimeter touches Outer perimeter, Inner is outside Outer (not contained)
+    4. Inner surrounds Outer (not contained)
+    5. Inner perimeter touches Outer perimeter, Inner is inside Outer (not contained)
 */
