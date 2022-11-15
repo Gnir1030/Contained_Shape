@@ -24,13 +24,14 @@ bool ReuleauxTriangle::ContainedBy(Circle &circle){
     double minDist = distance3(circle.getCen(), vertices[0]); 
     Point minP = vertices[0];
     for(int i  = 0; i < 3; i++){
-        std::cerr << minP.x << " " << minP.y << std::endl;
         int neg = 1;
         if(vertices[i].x < vertices[j].x){ neg = -1; }
         if(neg * (vertices[i].x - vertices[j].x) * circle.getCen().y <= neg*((vertices[i].y - vertices[j].y) * circle.getCen().x + (vertices[i].x * vertices[j].y - vertices[i].y * vertices[j].x))){
-            std::cerr << "!!" << std::endl;
+            return true;
         }
+
         double dist = distance3(circle.getCen(), vertices[i]);
+        std::cerr << minDist << " " << dist << "(" << minP.x << " " << minP.y << std::endl;
         if(minDist > dist){minDist = dist; minP = vertices[i];}
         j = i;
     }
