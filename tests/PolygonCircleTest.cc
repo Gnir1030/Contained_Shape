@@ -36,7 +36,7 @@ TEST(PolygonCircle4, Case3NotContained)
 TEST(PolygonCircle5, Case4NotContained)
 {
   Polygon inner = Polygon(convex3);
-  Circle outer = Circle(Point(1.0,2.0), 4.0);
+  Circle outer = Circle(Point(1.0,2.0), 1.0);
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
