@@ -40,7 +40,7 @@ TEST(ReuleauxConvex4, Case3NotContained)
 
 TEST(ReuleauxConvex5, Case4NotContained)
 {
-  std::vector<Point> convex = {Point(-3,-0.25), Point(3, -0.25), Point(0.0,5.0)};
+  std::vector<Point> convex = {Point(-5,-0.25), Point(5, -0.25), Point(0.0,7.0)};
   ReuleauxTriangle inner = ReuleauxTriangle(tri4);
   Polygon outer = Polygon(convex);
   ASSERT_FALSE(inner.ContainedBy(outer));
