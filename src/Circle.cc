@@ -29,15 +29,14 @@ bool Circle::ContainedBy(Polygon &polygon){
     bool oddEdges= false;
     int counter = 0;
     double Dist;
-    for(auto i : polygon.getVer()){
-        std::cerr << "(" << i.x << "," << i.y << ")" << std::endl;
-    }
     for (auto i = polygon.getVer().begin(); i != polygon.getVer().end(); i++) {
         if ((i->y < center.y && j->y >= center.y) ||  (j->y < center.y && i->y >= center.y )) {
             if (i->x + (center.y-i->y)/(j->y - i->y)*(j->x - i->x) < center.x) {
                 oddEdges=!oddEdges; 
             }
         }//http://alienryderflex.com/polygon/
+
+        std::cerr << counter << std::endl << " " << i->x << "," << i->y << " " << j->x << "," << j->y<< std::endl;
 
         Dist = std::abs((j->x - i->x) * center.y + (i->y - j->y) * center.x + (i->x * j->y - j->x * i->y))/sqrt(pow(i->y - j->y, 2) + pow(j->x - i->x, 2));
         if(Dist <= radius){
