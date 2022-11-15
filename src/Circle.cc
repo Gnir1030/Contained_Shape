@@ -29,7 +29,9 @@ bool Circle::ContainedBy(Polygon &polygon){
     bool oddEdges= false;
     int counter = 0;
     double Dist;
-     polygon.print();
+    for(auto i : polygon.getVer()){
+        std::cerr << "(" << i.x << "," << i.y << ")" << std::endl;
+    }
     for (auto i = polygon.getVer().begin(); i != polygon.getVer().end(); i++) {
         if ((i->y < center.y && j->y >= center.y) ||  (j->y < center.y && i->y >= center.y )) {
             if (i->x + (center.y-i->y)/(j->y - i->y)*(j->x - i->x) < center.x) {
