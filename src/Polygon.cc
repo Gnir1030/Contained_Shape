@@ -1,21 +1,13 @@
 #include "Circle.h"
 #include "Polygon.h"
 #include "Reuleaux.h"
-
+#include <iostream>
 double distance2(const Point& p1, const Point& p2){
     return sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2));
 }
 
 Polygon::Polygon(std::vector<Point> vertices /* clockwise */){
     this->vertices = vertices;
-    double x = 0, y = 0;
-    for(auto i : vertices){
-        x += i.x;
-        y += i.y;
-    }
-    x /= vertices.size();
-    y /= vertices.size();
-    this->center = Point(x, y);
 }
 
 bool Polygon::ContainedBy(Circle &circle){
@@ -64,6 +56,8 @@ std::vector<Point> Polygon::getVer(){
     return this->vertices;
 }
 
-Point Polygon::getCen(){
-    return this->center;
+void Polygon::print(){
+    for(auto i: vertices){
+        std::cerr << "(" << i.x << "," << i.y << ")" << std::endl;
+    }
 }
