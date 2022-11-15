@@ -27,6 +27,7 @@ bool ReuleauxTriangle::ContainedBy(Circle &circle){
         int neg = 1;
         if(vertices[i].x < vertices[j].x){ neg = -1; }
         if(neg * (vertices[i].x - vertices[j].x) * circle.getCen().y > neg*((vertices[i].y - vertices[j].y) * circle.getCen().x + (vertices[i].x * vertices[j].y - vertices[i].y * vertices[j].x))){
+            std::cerr << "!" << std::endl;
             return true;
         }
         double dist = distance3(circle.getCen(), vertices[i]);
@@ -34,7 +35,7 @@ bool ReuleauxTriangle::ContainedBy(Circle &circle){
         j = i;
     }
 
-    if(distance3(circle.getCen(),minP) + radius > circle.getRad()){
+    if(distance3(circle.getCen(),minP) + radius >= circle.getRad()){
         return false;
     }
 
