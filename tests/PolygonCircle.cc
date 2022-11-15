@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 // Uncomment when you're ready
 
-std::vector<Point> convex = {Point(0.0,0.0), Point(2.0, 0.0), Point(3.0, 2.0), Point(1.0, 4.0), Point(-1.0, 2.0)};
+std::vector<Point> convex2 = {Point(0.0,0.0), Point(2.0, 0.0), Point(3.0, 2.0), Point(1.0, 4.0), Point(-1.0, 2.0)};
 
 TEST(PolygonCircle, Contained)
 {
