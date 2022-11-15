@@ -5,7 +5,7 @@
 
 Point tri2[3] = {Point(4.0,0.0), Point(-4.0, 0.0), Point(0.0, 4.0 * sqrt(3.0))};
 
-TEST(ConvexReuleaux, Contained)
+TEST(PolygonReuleaux, Contained)
 {
   std::vector<Point> convex = {Point(0.0,0.0), Point(2.0, 0.0), Point(2.0, 2.0), Point(1.0, 3.0), Point(-1.0, 2.0)};
   Polygon inner = Polygon(convex);
@@ -13,7 +13,7 @@ TEST(ConvexReuleaux, Contained)
   ASSERT_TRUE(inner.ContainedBy(outer));
 }
 
-TEST(ConvexReuleaux, Case1NotContained)
+TEST(PolygonReuleaux2, Case1NotContained)
 {
   std::vector<Point> convex = {Point(-5.0,5.0), Point(-5.0, -1.0), Point(5.0, -1.0), Point(5.0, 5.0)};
   Polygon inner = Polygon(convex);
@@ -21,7 +21,7 @@ TEST(ConvexReuleaux, Case1NotContained)
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
-TEST(ConvexConvex3, Case2NotContained)
+TEST(PolygonReuleaux3, Case2NotContained)
 {
   std::vector<Point> convex = {Point(0.0,0.0), Point(2.0, 0.0), Point(5.0, 3.0), Point(1.0, 4.0), Point(-1.0, 2.0)};
   Polygon inner = Polygon(convex);
@@ -29,7 +29,7 @@ TEST(ConvexConvex3, Case2NotContained)
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
-TEST(ConvexConvex4, Case3NotContained)
+TEST(PolygonReuleaux4, Case3NotContained)
 {
   std::vector<Point> convex = {Point(0.0,0.0), Point(4.0, 0.0), Point(3.0, sqrt(15.0)), Point(1.0, 4.0), Point(-1.0, 2.0)};
   Polygon inner = Polygon(convex);

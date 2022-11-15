@@ -19,21 +19,21 @@ TEST(ReuleauxCircle2, Case1NotContained)
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
-TEST(CircleReuleaux3, Case2NotContained)
+TEST(ReuleauxCircle3, Case2NotContained)
 {
   ReuleauxTriangle inner = ReuleauxTriangle(tri3);
   Circle outer = Circle(Point(0.0,2.0), 2.0);
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
-TEST(CircleReuleaux4, Case3NotContained)
+TEST(ReuleauxCircle4, Case3NotContained)
 {
   ReuleauxTriangle inner = ReuleauxTriangle(tri3);
   Circle outer = Circle(Point(0.0,5.0), 4.0 - 2.0 * sqrt(3.0));
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
-TEST(CircleReuleaux5, Case4NotContained)
+TEST(ReuleauxCircle5, Case4NotContained)
 {
   ReuleauxTriangle inner = ReuleauxTriangle(tri3);
   Circle outer = Circle(Point(0.0,5.0), 2.0 * sqrt(3.0) + 0.5);
