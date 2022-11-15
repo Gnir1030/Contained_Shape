@@ -29,14 +29,14 @@ TEST(CircleReuleaux3, Case2NotContained)
 TEST(CircleReuleaux4, Case3NotContained)
 {
   Circle inner2 = Circle(Point(0.0,1.0), 4.0);
-  Polygon outer2 = Polygon(convex);
+ ReuleauxTriangle outer2 = ReuleauxTriangle(tri);
   ASSERT_FALSE(inner2.ContainedBy(outer2));
 }
 
 TEST(CircleReuleaux5, Case4NotContained)
 {
   Circle inner2 = Circle(Point(0.0,0.0), 1.0);
-  Polygon outer2 = Polygon(convex);
+ ReuleauxTriangle outer2 = ReuleauxTriangle(tri);
   ASSERT_FALSE(inner2.ContainedBy(outer2));
 }
 /* 
