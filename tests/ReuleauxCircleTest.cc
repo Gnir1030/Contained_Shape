@@ -41,11 +41,11 @@ TEST(ReuleauxCircle5, Case4NotContained)
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
-TEST(ReuleauxCircle6, Case5NotContained)
+TEST(ReuleauxCircle6, Case5Contained)
 {
   ReuleauxTriangle inner = ReuleauxTriangle(tri3);
   Circle outer = Circle(Point(2.0,2.0), 5.0);
-  ASSERT_FALSE(inner.ContainedBy(outer));
+  ASSERT_TRUE(inner.ContainedBy(outer));
 }
 
 /* 
@@ -54,4 +54,5 @@ TEST(ReuleauxCircle6, Case5NotContained)
     3. One or more Reuleaux vertices touch Outer perimeter
     All inner Reuleux Vertices inside
     4. A curve of Reuleaux intersect with Outer Circle
+    5. Circle not intersect when reaching on vertex, not curve (Contained)
 */
