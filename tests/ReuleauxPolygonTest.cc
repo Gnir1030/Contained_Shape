@@ -29,6 +29,7 @@ TEST(ReuleauxConvex3, Case2NotContained)
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
+/*
 TEST(ReuleauxConvex4, Case3NotContained)
 {
   std::vector<Point> convex = {Point(8.0/sqrt(3.0) - 2.0,0.0), Point(4.0/sqrt(3.0) - 2, 4.0), Point(-3.0,4.0), Point(-3.0, -2.0)};
@@ -44,6 +45,7 @@ TEST(ReuleauxConvex5, Case4NotContained)
   Polygon outer = Polygon(convex);
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
+*/
 /* 
     1. All inner Polygon vertices outside outer Reuleaux (Inner surrounds Outer)
     2. One or more Polygon vertices outside outer Reuleaux (Inner and Outer intersect) 
