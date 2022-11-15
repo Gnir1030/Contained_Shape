@@ -34,11 +34,11 @@ bool ReuleauxTriangle::ContainedBy(Circle &circle){
         j = i;
     }
 /*
-    if(distance3(circle.getCen(),minP) + radius >= circle.getRad()){
+    if(distance3(circle.getCen(), minP) + radius >= circle.getRad()){
         return false;
     }
 */
-    return true;
+    return distance3(circle.getCen(), minP) + radius < circle.getRad();
     //return Circle(minPoint, radius).ContainedBy(circle);
 }
 bool ReuleauxTriangle::ContainedBy(Polygon &polygon){
