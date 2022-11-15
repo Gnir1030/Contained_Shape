@@ -68,7 +68,7 @@ bool ReuleauxTriangle::ContainedBy(Polygon &polygon){
                 maxDist = Dist;
             }
         }
-        if (maxDist > radius){return false;}
+        if (maxDist < radius){return false;}
         j = i;
     }
 
