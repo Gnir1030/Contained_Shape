@@ -7,7 +7,7 @@ Point tri4[3] = {Point(2.0,0.0), Point(-2.0, 0.0), Point(0.0, 2.0 * sqrt(3.0))};
 
 TEST(ReuleauxConvex, Contained)
 {
-  std::vector<Point> convex = {Point(-3.0, -1.0), Point(3.0, -1.0), Point(3.0,4.0), Point(-3.0, 4.0)};
+  std::vector<Point> convex = {Point(-8.0, -8.0), Point(8.0, -8.0), Point(8.0,8.0), Point(-8.0, 8.0)};
   ReuleauxTriangle inner = ReuleauxTriangle(tri4);
   Polygon outer = Polygon(convex);
   ASSERT_TRUE(inner.ContainedBy(outer));
