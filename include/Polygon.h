@@ -12,6 +12,7 @@
 
 #include "Containable.h"
 #include "Point.h"
+#include <math.h>
 
 class Polygon : public Containable {
   public:

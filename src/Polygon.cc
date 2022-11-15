@@ -20,6 +20,7 @@ bool Polygon::ContainedBy(Circle &circle){
 }
 bool Polygon::ContainedBy(Polygon &polygon){
     for(auto k : vertices){
+        /*Cited*/
         auto j = *(polygon.getVer().end() - 1);
         bool oddEdges= false;
         for (auto i : polygon.getVer()) {
@@ -29,7 +30,8 @@ bool Polygon::ContainedBy(Polygon &polygon){
                 }
             }
             j=i;
-        }//http://alienryderflex.com/polygon/
+        }
+        //Check inner and outter point on polygon http://alienryderflex.com/polygon/
     
         if(!oddEdges){
             return false;

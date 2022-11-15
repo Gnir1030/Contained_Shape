@@ -10,6 +10,7 @@
 
 #include "Containable.h"
 #include "Point.h"
+#include <math.h>
 
 class ReuleauxTriangle : public Containable {
   public:
