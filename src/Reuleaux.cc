@@ -31,8 +31,8 @@ bool ReuleauxTriangle::ContainedBy(Circle &circle){
         }
 
         double dist = distance3(circle.getCen(), vertices[i]);
-        std::cerr << minDist << " " << dist << "(" << minP.x << " " << minP.y << std::endl;
         if(minDist > dist){minDist = dist; minP = vertices[i];}
+        std::cerr << minDist << " " << dist << "(" << minP.x << " " << minP.y << std::endl;
         j = i;
     }
 
