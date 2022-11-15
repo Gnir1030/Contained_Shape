@@ -32,7 +32,6 @@ bool Polygon::ContainedBy(Polygon &polygon){
             j=i;
         }
         //Check inner and outter point on polygon http://alienryderflex.com/polygon/
-    
         if(!oddEdges){
             return false;
         }

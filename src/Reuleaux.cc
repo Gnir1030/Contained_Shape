@@ -19,7 +19,6 @@ bool ReuleauxTriangle::ContainedBy(Circle &circle){
             return false;
         }
     }
-
     double minDist = distance3(vertices[0], circle.getCen());
     Point minPoint = vertices[0];
     if(minDist > distance3(vertices[1], circle.getCen())){
@@ -50,7 +49,7 @@ bool ReuleauxTriangle::ContainedBy(Polygon &polygon){
             return false;
         }
     }
-
+/*
     auto j = *(polygon.getVer().end() - 1);
     for (auto i : polygon.getVer()) {
         double maxDist = 0;
@@ -60,12 +59,12 @@ bool ReuleauxTriangle::ContainedBy(Polygon &polygon){
                 maxDist = Dist;
             }
         }
-        std::cerr << maxDist << std::endl;
         if(maxDist >= radius){
             return false;
         }
         j = i;
     }
+    */
 
     return true;
 }
