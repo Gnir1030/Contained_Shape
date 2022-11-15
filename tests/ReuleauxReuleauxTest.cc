@@ -3,12 +3,12 @@
 #include <gtest/gtest.h>
 // Uncomment when you're ready
 
-Point tri4[3] = {Point(2.0,0.0), Point(-2.0, 0.0), Point(0.0, 2.0 * sqrt(3.0))};
+Point tri5[3] = {Point(2.0,0.0), Point(-2.0, 0.0), Point(0.0, 2.0 * sqrt(3.0))};
 
 TEST(ReuleauxReuleaux, Contained)
 {
   Point tri[3] = {Point(-3.0,-1.0), Point(3.0, -1.0), Point(0.0, 3.0 * sqrt(3.0) - 1)};
-  ReuleauxTriangle inner = ReuleauxTriangle(tri4);
+  ReuleauxTriangle inner = ReuleauxTriangle(tri5);
   ReuleauxTriangle outer = ReuleauxTriangle(tri);
   ASSERT_TRUE(inner.ContainedBy(outer));
 }
@@ -16,7 +16,7 @@ TEST(ReuleauxReuleaux, Contained)
 TEST(ReuleauxReuleaux2, Case1NotContained)
 {
   Point tri[3] = {Point(-1.0,0.0), Point(1.0, 0.0), Point(0.0, sqrt(3.0))};
-  ReuleauxTriangle inner = ReuleauxTriangle(tri4);
+  ReuleauxTriangle inner = ReuleauxTriangle(tri5);
   ReuleauxTriangle outer = ReuleauxTriangle(tri);
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
@@ -24,7 +24,7 @@ TEST(ReuleauxReuleaux2, Case1NotContained)
 TEST(ReuleauxReuleaux3, Case2NotContained)
 {
   Point tri[3] = {Point(0.0,1.0), Point(- 2.0, 1.0), Point(-1.0, 1 + sqrt(3.0))};
-  ReuleauxTriangle inner = ReuleauxTriangle(tri4);
+  ReuleauxTriangle inner = ReuleauxTriangle(tri5);
   ReuleauxTriangle outer = ReuleauxTriangle(tri);
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
@@ -32,15 +32,15 @@ TEST(ReuleauxReuleaux3, Case2NotContained)
 TEST(ReuleauxReuleaux4, Case3NotContained)
 {
   std::vector<Point> convex = {Point(-1.6,1.5), Point(-0.2, 1.5), Point(-1.0, 0.9 * sqrt(3.0) + 1.5)};
-  ReuleauxTriangle inner = ReuleauxTriangle(tri4);
+  ReuleauxTriangle inner = ReuleauxTriangle(tri5);
   Polygon outer = Polygon(convex);
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
 TEST(ReuleauxReuleaux5, Case4NotContained)
 {
-  ReuleauxTriangle inner = ReuleauxTriangle(tri4);
-  ReuleauxTriangle outer = ReuleauxTriangle(tri4);
+  ReuleauxTriangle inner = ReuleauxTriangle(tri5);
+  ReuleauxTriangle outer = ReuleauxTriangle(tri5);
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 /* 
