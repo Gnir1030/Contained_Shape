@@ -47,7 +47,6 @@ TEST(ReuleauxConvex5, Case4NotContained)
 /* 
     1. All inner Polygon vertices outside outer Reuleaux (Inner surrounds Outer)
     2. One or more Polygon vertices outside outer Reuleaux (Inner and Outer intersect) 
-    3. One or more Polygon vertices touch Outer perimeter
     All inner Reuleux Vertices inside
-    4. A curve of Reuleaux intersect with Outer Circle
+    3. One or more Polygon vertices touch(intersect) Outer perimeter
 */

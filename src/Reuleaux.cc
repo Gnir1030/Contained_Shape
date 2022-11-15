@@ -36,16 +36,11 @@ bool ReuleauxTriangle::ContainedBy(Polygon &polygon){
     for(auto k : vertices){
         auto j = *(polygon.getVer().end() - 1);
         bool oddEdges= false;
-        double maxDist = 0;
         for (auto i : polygon.getVer()) {
             if ((i.y < k.y && j.y >= k.y) ||  (j.y < k.y && i.y >= k.y )) {
                 if (i.x + (k.y-i.y)/(j.y - i.y)*(j.x - i.x) < k.x) {
                     oddEdges=!oddEdges; 
                 }
-            }
-            double Dist = std::abs((j.x - i.x) * k.y + (i.y - j.y) * k.x + (i.x * j.y - j.x * i.y))/sqrt(pow(i.y - j.y, 2) + pow(j.x - i.x, 2));
-            if(maxDist < Dist){
-                maxDist = Dist;
             }
             j=i;
         }
@@ -53,11 +48,23 @@ bool ReuleauxTriangle::ContainedBy(Polygon &polygon){
         if(!oddEdges){
             return false;
         }
+    }
 
-        if(maxDist <= radius){
+    auto j = *(polygon.getVer().end() - 1);
+    for (auto i : polygon.getVer()) {
+        double maxDist = 0;
+        for(auto k : vertices){
+            double Dist = std::abs((j.x - i.x) * k.y + (i.y - j.y) * k.x + (i.x * j.y - j.x * i.y))/sqrt(pow(i.y - j.y, 2) + pow(j.x - i.x, 2));
+            if(maxDist < Dist){
+                maxDist = Dist;
+            }
+        }
+        if(maxDist >= radius){
             return false;
         }
+        j = i;
     }
+    
     return true;
 }
 bool ReuleauxTriangle::ContainedBy(ReuleauxTriangle &rt){
