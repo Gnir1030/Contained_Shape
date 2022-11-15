@@ -7,28 +7,28 @@ std::vector<Point> convex2 = {Point(0.0,0.0), Point(2.0, 0.0), Point(3.0, 2.0), 
 
 TEST(PolygonCircle, Contained)
 {
-  Polygon inner = Polygon(convex);
+  Polygon inner = Polygon(convex2);
   Circle outer = Circle(Point(1.0,2.0), 4.0);
   ASSERT_TRUE(inner.ContainedBy(outer));
 }
 
 TEST(PolygonCircle2, Case1NotContained)
 {
-  Polygon inner = Polygon(convex);
+  Polygon inner = Polygon(convex2);
   Circle outer = Circle(Point(1.0,2.0), 1.0);
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
 TEST(PolygonCircle3, Case2NotContained)
 {
-  Polygon inner = Polygon(convex);
+  Polygon inner = Polygon(convex2);
   Circle outer = Circle(Point(2.0,2.0), 1.5);
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
 TEST(PolygonCircle4, Case3NotContained)
 {
-  Polygon inner = Polygon(convex);
+  Polygon inner = Polygon(convex2);
   Circle outer = Circle(Point(1.0,2.0), sqrt(3.0));
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
