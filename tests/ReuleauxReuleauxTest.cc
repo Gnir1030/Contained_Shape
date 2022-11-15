@@ -31,13 +31,21 @@ TEST(ReuleauxReuleaux3, Case2NotContained)
 
 TEST(ReuleauxReuleaux4, Case3NotContained)
 {
-  std::vector<Point> convex = {Point(-1.6,1.5), Point(-0.2, 1.5), Point(-1.0, 0.9 * sqrt(3.0) + 1.5)};
+  Point tri[3] = {Point(1.0,0.4), Point(1.0, -0.4), Point(0.0, sqrt(3.0) -0.4)};
   ReuleauxTriangle inner = ReuleauxTriangle(tri5);
-  Polygon outer = Polygon(convex);
+  ReuleauxTriangle outer = ReuleauxTriangle(tri);
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
 TEST(ReuleauxReuleaux5, Case4NotContained)
+{
+  Point tri[3] = {Point(0.0,2.0 * sqrt(3.0) - 4), Point(2.0, 4.0 *sqrt(3.0)), Point(-2.0, 4.0 *sqrt(3.0) - 4)};
+  ReuleauxTriangle inner = ReuleauxTriangle(tri5);
+  ReuleauxTriangle outer = ReuleauxTriangle(tri);
+  ASSERT_FALSE(inner.ContainedBy(outer));
+}
+
+TEST(ReuleauxReuleaux6, Case5NotContained)
 {
   ReuleauxTriangle inner = ReuleauxTriangle(tri5);
   ReuleauxTriangle outer = ReuleauxTriangle(tri5);
@@ -46,6 +54,7 @@ TEST(ReuleauxReuleaux5, Case4NotContained)
 /* 
     1. All inner Reuleaux vertices outside outer Reuleaux (Inner surrounds Outer)
     2. One or more Reuleaux vertices outside outer Reuleaux (Inner and Outer intersect) 
-    3. Inner Reuleaux curve touches Outer perimeter
-    4. Coincidence
+    3. Inner Reuleaux curve touches Outer perimeter (inside)
+    4. Inner Reuleaux curve touches Outer perimeter (outside)
+    5. Coincidence
 */
