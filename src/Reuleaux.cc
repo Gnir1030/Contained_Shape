@@ -2,6 +2,7 @@
 #include "Polygon.h"
 #include "Reuleaux.h"
 #include<algorithm> 
+#include <iostream>
 
 double distance3(const Point& p1, const Point& p2){
     return sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2));
@@ -59,12 +60,13 @@ bool ReuleauxTriangle::ContainedBy(Polygon &polygon){
                 maxDist = Dist;
             }
         }
+        std::cerr << maxDist << std::endl;
         if(maxDist >= radius){
             return false;
         }
         j = i;
     }
-    
+
     return true;
 }
 bool ReuleauxTriangle::ContainedBy(ReuleauxTriangle &rt){
