@@ -33,11 +33,11 @@ bool ReuleauxTriangle::ContainedBy(Circle &circle){
         if(minDist > dist || minDist == 0 ){minDist = dist; minP = vertices[i];}
         j = i;
     }
-
+/*
     if(distance3(circle.getCen(),minP) + radius >= circle.getRad()){
         return false;
     }
-
+*/
     return true;
     //return Circle(minPoint, radius).ContainedBy(circle);
 }
