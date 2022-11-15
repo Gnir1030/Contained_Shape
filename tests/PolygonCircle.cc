@@ -16,21 +16,21 @@ TEST(PolygonCircle2, Case1NotContained)
 {
   Polygon inner = Polygon(convex);
   Circle outer = Circle(Point(1.0,2.0), 1.0);
-  ASSERT_FALSE(inner2.ContainedBy(outer));
+  ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
 TEST(PolygonCircle3, Case2NotContained)
 {
   Polygon inner = Polygon(convex);
   Circle outer = Circle(Point(2.0,2.0), 1.5);
-  ASSERT_FALSE(inner2.ContainedBy(outer));
+  ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
 TEST(PolygonCircle4, Case3NotContained)
 {
   Polygon inner = Polygon(convex);
   Circle outer = Circle(Point(1.0,2.0), sqrt(3.0));
-  ASSERT_FALSE(inner2.ContainedBy(outer));
+  ASSERT_FALSE(inner.ContainedBy(outer));
 }
 /* 
     1. All Polygon vertices outside Circle (Inner surrounds Outer)
