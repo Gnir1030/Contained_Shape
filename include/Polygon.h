@@ -25,7 +25,6 @@ class Polygon : public Containable {
     bool ContainedBy(ReuleauxTriangle &rt);
     std::vector<Point> getVer();
     Point getCen();
-    void print();
   private:
     std::vector<Point> vertices;
     Point center;

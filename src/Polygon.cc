@@ -57,9 +57,3 @@ bool Polygon::ContainedBy(ReuleauxTriangle &rt){
 std::vector<Point> Polygon::getVer(){
     return this->vertices;
 }
-
-void Polygon::print(){
-    for(auto i: vertices){
-        std::cerr << "(" << i.x << "," << i.y << ")" << std::endl;
-    }
-}
