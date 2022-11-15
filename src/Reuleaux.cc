@@ -19,6 +19,7 @@ bool ReuleauxTriangle::ContainedBy(Circle &circle){
             return false;
         }
     }
+    /*
     double minDist = distance3(vertices[0], circle.getCen());
     Point minPoint = vertices[0];
     if(minDist > distance3(vertices[1], circle.getCen())){
@@ -29,8 +30,10 @@ bool ReuleauxTriangle::ContainedBy(Circle &circle){
         minDist = distance3(vertices[2], circle.getCen());
         minPoint = vertices[2];
     }
+    */
 
-    return Circle(minPoint, radius).ContainedBy(circle);
+    return true;
+    //return Circle(minPoint, radius).ContainedBy(circle);
 }
 bool ReuleauxTriangle::ContainedBy(Polygon &polygon){
     for(auto k : vertices){
