@@ -16,8 +16,8 @@ TEST(ReuleauxConvex, Contained)
 TEST(ReuleauxConvex2, Case1NotContained)
 {
   std::vector<Point> convex = {Point(-1.0,0.0), Point(1.0, 0.0), Point(1.0, 1.0), Point(-1.0, 1.0)};
-  Polygon inner = Polygon(convex);
-  ReuleauxTriangle outer = ReuleauxTriangle(tri4);
+  ReuleauxTriangle inner = ReuleauxTriangle(tri4);
+  Polygon outer = Polygon(convex);
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
