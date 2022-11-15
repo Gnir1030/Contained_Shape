@@ -29,14 +29,14 @@ TEST(ReuleauxCircle3, Case2NotContained)
 TEST(ReuleauxCircle4, Case3NotContained)
 {
   ReuleauxTriangle inner = ReuleauxTriangle(tri3);
-  Circle outer = Circle(Point(0.0,5.0), 4.0 - 2.0 * sqrt(3.0));
+  Circle outer = Circle(Point(0.0,5.0), 9.0 - 2.0 * sqrt(3.0));
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 
 TEST(ReuleauxCircle5, Case4NotContained)
 {
   ReuleauxTriangle inner = ReuleauxTriangle(tri3);
-  Circle outer = Circle(Point(0.0,5.0), 2.0 * sqrt(3.0) + 0.5);
+  Circle outer = Circle(Point(0.0,5.0), 5.5);
   ASSERT_FALSE(inner.ContainedBy(outer));
 }
 /* 
