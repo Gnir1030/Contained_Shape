@@ -8,7 +8,7 @@ Point tri3[3] = {Point(2.0,0.0), Point(-2.0, 0.0), Point(0.0, 2.0 * sqrt(3.0))};
 TEST(ReuleauxCircle, Contained)
 {
   ReuleauxTriangle inner = ReuleauxTriangle(tri3);
-  Circle outer = Circle(Point(0.0,0.0), 4.0);
+  Circle outer = Circle(Point(0.0,0.0), 10.0);
   ASSERT_TRUE(inner.ContainedBy(outer));
 }
 
