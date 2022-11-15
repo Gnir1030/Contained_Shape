@@ -20,11 +20,11 @@ bool Polygon::ContainedBy(Circle &circle){
 }
 bool Polygon::ContainedBy(Polygon &polygon){
     for(auto k : vertices){
-        auto j = polygon.getVer().end() - 1;
+        auto j = *(polygon.getVer().end() - 1);
         bool oddEdges= false;
-        for (auto i = polygon.getVer().begin(); i != polygon.getVer().end(); i++) {
-            if ( (i->y < k.y && j->y >= k.y) ||  (j->y < k.y && i->y >= k.y) ) {
-                if (i->x + (k.y-i->y)/(j->y - i->y)*(j->x - i->x) < k.x) {
+        for (auto i : polygon.getVer()) {
+            if ( (i.y < k.y && j.y >= k.y) ||  (j.y < k.y && i.y >= k.y) ) {
+                if (i.x + (k.y-i.y)/(j.y - i.y)*(j.x - i.x) < k.x) {
                     oddEdges=!oddEdges; 
                 }
             }
